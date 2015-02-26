@@ -51,7 +51,9 @@
 \definecolor{shadecolor}{rgb}{.8,.8,.8}
 \NewEnviron{comment}{
 	\ifoptiondraft{
-		\begin{shaded*}\noindent \BODY\end{shaded*}
+		\begin{shaded*}\noindent \BODY \begin{flushright}\vspace{-1ex}
+				{\tiny (only visible in draft mode)}\vspace{-3ex}
+			\end{flushright}\end{shaded*}
 	}{}
 }
 
