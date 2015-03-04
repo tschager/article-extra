@@ -51,7 +51,8 @@
 \RequirePackage{tikzscale}
 \usetikzlibrary{calc,arrows}
 
-% Comment environment for draft mode
+% Todo-Notes, comment environment for draft mode
+\RequirePackage[obeyDraft]{todonotes}
 \RequirePackage{ifdraft}
 \RequirePackage{environ}
 \RequirePackage{xcolor}
@@ -64,6 +65,7 @@
 			\end{flushright}\end{shaded*}
 	}{}
 }
+
 
 % Biblatex (backref in draft mode)
 \ifdraft{
@@ -91,13 +93,13 @@
 }
 \AtEndDocument{
 	\printbibliography
-	\ifdraft{\listoftodos}{}
+	\listoftodos
 }
 
+	
 \ifdraft{% Todo-notes, marign note und total page numbers im draft mode
 	% draft
-	\RequirePackage{todonotes}
-	
+
 	% draft marginnote
 	\RequirePackage{datetime}
 	\RequirePackage{background}
@@ -121,7 +123,6 @@
 	\RequirePackage[backref=true]{biblatex}
 }{ 
 	% final
-	\RequirePackage[disable]{todonotes}
 }
 
 % cleverref
