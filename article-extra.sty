@@ -30,16 +30,8 @@
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
 
-% Links + PDF Metadata
+% Links
 \RequirePackage[hidelinks,draft=false]{hyperref}
-\makeatletter
-\AtBeginDocument{
-	\hypersetup{
-		pdftitle = {\@title},
-		pdfauthor = {\@author}
-	}
-}
-\makeatother
 
 % Tables
 \RequirePackage{booktabs}
@@ -86,7 +78,14 @@
 }
 %%%%%
 
+% PDF metadata, bibliography, list of todo notes, us date format
+\makeatletter
 \AtBeginDocument{
+	\hypersetup{
+		pdftitle = {\@title},
+		pdfauthor = {\@author}
+	}
+	
 	\ifdraft{\usdate}{}
 	\maketitle
 	\ifdraft{\thispagestyle{fancy}}{}
@@ -95,7 +94,7 @@
 	\printbibliography
 	\listoftodos
 }
-
+\makeatother
 	
 \ifdraft{% Todo-notes, marign note und total page numbers im draft mode
 	% draft
