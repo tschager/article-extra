@@ -37,7 +37,7 @@
 \RequirePackage{booktabs}
 
 % Graphicx und Tikz
-\RequirePackage[final]{graphicx}
+\RequirePackage[final]{graphicx}% 'final'-options for graphics in draft mode
 \RequirePackage{subcaption}
 \RequirePackage{tikz}
 \RequirePackage{tikzscale}
@@ -61,9 +61,9 @@
 
 % Biblatex (backref in draft mode)
 \ifdraft{
-	\RequirePackage[backend=biber,hyperref=true,backref=true]{biblatex}
+	\RequirePackage[backend=biber,maxbibnames=99,hyperref=true,backref=true]{biblatex}
 }{
-	\RequirePackage[backend=biber,hyperref=true]{biblatex}
+	\RequirePackage[backend=biber,maxbibnames=99,hyperref=true]{biblatex}
 }
 \DeclareUnicodeCharacter{00A0}{~}
 %%%%%
@@ -118,8 +118,6 @@
 	\fancyhead{}
 	\chead{}
 	\cfoot{\thepage{}/\pageref{LastPage}}
-	
-	\RequirePackage[backref=true]{biblatex}
 }{ 
 	% final
 }
@@ -127,6 +125,8 @@
 % cleverref
 \usepackage{cleveref}
 \crefname{problem}{Problem}{Problems}
+\crefname{definition}{Definition}{Definitions}
+\crefname{lemma}{Lemma}{Lemmata}
 
 \endinput
 %%
